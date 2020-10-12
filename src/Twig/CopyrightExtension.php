@@ -12,13 +12,21 @@ class CopyrightExtension extends AbstractExtension
             new TwigFunction(
                 'copyright', // Nom de la fonction Twig
                 [$this, 'getCopyright'], // Methode à déclencher lors de l'appel de la fonction "copyrigth"
+                ['is_safe' => ['html']]
             ),
         ];
     }
 
-    public function getCopyright(int $xxx)
+    public function getCopyright(int $date=null)
     {
-        return "Hello le copyright";
+        $cur_year = date("Y");
+
+        $output = "&copy; ";
+        $output.= null != $date && $date < $cur_year ? $date." - " : null;
+        $output.= $cur_year;
+        $output.= " Site.com";
+
+        return $output;
     }
 
 }
