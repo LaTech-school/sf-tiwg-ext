@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+        <header>
+            Header...
+        </header>
+
+        {% block body %}{% endblock %}
+
+        <footer>
+            Footer... {{ copyright(2015) }}
+            {# © 2015-2020 Site.com #}
+            {# © 2020 Site.com #}
+        </footer>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
